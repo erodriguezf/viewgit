@@ -26,15 +26,12 @@ class UserAdapter(private val mValue: List<User>,
         val item = mValue[position]
          holder.mView.user = item
          holder.mView.executePendingBindings()
-        /* holder.mView.thelayout.setOnClickListener {
-             mListener?.onListButtonInteraction(item)
-         }*/
 
-        // holder.textView.text = item.nombre
-
-       /*  holder.mView.setOnClickListener {
+         holder.mView.thelayout.setOnClickListener {
              mListener?.onListItemInteraction(item)
-         }*/
+         }
+
+       
 
          holder.mView.buttonUser.setOnClickListener {
              mListener?.onListButtonInteraction(item)

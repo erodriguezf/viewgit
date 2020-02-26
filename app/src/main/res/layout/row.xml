@@ -4,12 +4,16 @@
     <data>
         <variable
             name="user"
-            type="com.example.view.data.User" />
+            type="com.example.view.data.User" /> 
+
+        
 
 
     </data>
 
-<LinearLayout android:layout_width="match_parent"
+<LinearLayout
+    android:id="@+id/thelayout"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
