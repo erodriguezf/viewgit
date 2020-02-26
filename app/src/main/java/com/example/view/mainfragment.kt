@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.view.data.User
 import kotlinx.android.synthetic.main.fragment_mainfragment.view.*
@@ -15,9 +14,9 @@ import kotlinx.android.synthetic.main.fragment_mainfragment.view.*
 /**
  * A simple [Fragment] subclass.
  */
-class mainfragment : Fragment(), myuseradapter.onListInteraction {
+class mainfragment : Fragment(), UserAdapter.onListInteraction {
     val users = mutableListOf<User>()
-    private var adapter : myuseradapter? = null
+    private var adapter : UserAdapter? = null
     var Count: Int = 0
 
     override fun onCreateView(
@@ -26,7 +25,7 @@ class mainfragment : Fragment(), myuseradapter.onListInteraction {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_mainfragment, container, false)
-        adapter = myuseradapter(users,this)
+        adapter = UserAdapter(users,this)
 
 
         view.list.layoutManager = LinearLayoutManager(context)

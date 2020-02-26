@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android" >
+    <data>
+        <variable
+            name="user"
+            type="com.example.view.data.User" />
+
+
+    </data>
+
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
@@ -9,7 +18,7 @@
         android:layout_width="38dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:text="TextView" />
+        android:text="@{user.nombre}" />
 
     <Button
         android:id="@+id/buttonUser"
@@ -18,3 +27,4 @@
         android:layout_weight="1"
         android:text="Delete" />
 </LinearLayout>
+    </layout>
