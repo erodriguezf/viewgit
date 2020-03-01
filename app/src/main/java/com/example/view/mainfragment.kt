@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.view.data.User
 import kotlinx.android.synthetic.main.fragment_mainfragment.view.*
@@ -14,11 +17,13 @@ import kotlinx.android.synthetic.main.fragment_mainfragment.view.*
 /**
  * A simple [Fragment] subclass.
  */
-class mainfragment : Fragment(), UserAdapter.onListInteraction {
+class mainfragment : Fragment(), UserAdapter.onListInteraction , View.OnClickListener {
+
     val users = mutableListOf<User>()
     private var adapter : UserAdapter? = null
     var Count: Int = 0
 
+    lateinit var navcontroller: NavController
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,6 +45,25 @@ class mainfragment : Fragment(), UserAdapter.onListInteraction {
 
         return view
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        navcontroller = Navigation.findNavController(view)
+
+        view.findViewById<TextView>(R.id.textViewUsername).setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+       when(v!!.id){
+
+           R.id.textViewUsername ->{
+               navcontroller!!.navigate(R.id.action_mainfragment_to_foto)
+           }
+       }
+    }
+
+
+
 
     override fun onListItemInteraction(item: User?) {
          Log.d("xRecicleView", "onListItemInteraction"+item!!.nombre)
